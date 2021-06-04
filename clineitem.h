@@ -1,16 +1,16 @@
-﻿#ifndef JLINEITEM_H
-#define JLINEITEM_H
+﻿#ifndef CLINEITEM_H
+#define CLINEITEM_H
 
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
 
-class JLineItem : public QGraphicsItem
+class CLineItem : public QGraphicsItem
 {
 public:
-    explicit JLineItem(const QLineF &line, const QPen &pen = QPen());
-    explicit JLineItem(const QPointF &p1, const QPointF &p2, const QPen &pen = QPen());
-    explicit JLineItem(qreal x1, qreal y1, qreal x2, qreal y2, const QPen &pen = QPen());
+    explicit CLineItem(const QLineF &line, const QPen &pen = QPen());
+    explicit CLineItem(const QPointF &p1, const QPointF &p2, const QPen &pen = QPen());
+    explicit CLineItem(qreal x1, qreal y1, qreal x2, qreal y2, const QPen &pen = QPen());
 
     QRectF boundingRect() const override;
     QPainterPath shape() const override;
@@ -39,4 +39,4 @@ private:
     QPen m_pen;
 };
 
-#endif // JLINEITEM_H
+#endif // CLINEITEM_H

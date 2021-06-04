@@ -28,10 +28,10 @@ CONFIG += c++11
 
 SOURCES += \
         cgraphicslineitem.cpp \
+        clineitem.cpp \
         dxflib/dl_dxf.cpp \
         dxflib/dl_writer_ascii.cpp \
         dxfreader.cpp \
-        jlineitem.cpp \
         jtextitem.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -41,6 +41,7 @@ SOURCES += \
 
 HEADERS += \
         cgraphicslineitem.h \
+        clineitem.h \
         dxflib/dl_attributes.h \
         dxflib/dl_codes.h \
         dxflib/dl_creationadapter.h \
@@ -52,7 +53,6 @@ HEADERS += \
         dxflib/dl_writer.h \
         dxflib/dl_writer_ascii.h \
         dxfreader.h \
-        jlineitem.h \
         jtextitem.h \
         mainwindow.h \
         mygraphicsscene.h \

@@ -1,44 +1,44 @@
-﻿#include "jlineitem.h"
+﻿#include "clineitem.h"
 
-JLineItem::JLineItem(const QLineF &line, const QPen &pen)
+CLineItem::CLineItem(const QLineF &line, const QPen &pen)
     : m_line(line)
     , m_pen(pen)
 {
     init();
 }
 
-JLineItem::JLineItem(const QPointF &p1, const QPointF &p2, const QPen &pen)
+CLineItem::CLineItem(const QPointF &p1, const QPointF &p2, const QPen &pen)
     : m_line(p1, p2)
     , m_pen(pen)
 {
     init();
 }
 
-JLineItem::JLineItem(qreal x1, qreal y1, qreal x2, qreal y2, const QPen &pen)
+CLineItem::CLineItem(qreal x1, qreal y1, qreal x2, qreal y2, const QPen &pen)
     : m_line(x1, y1, x2, y2)
     , m_pen(pen)
 {
     init();
 }
 
-void JLineItem::init()
+void CLineItem::init()
 {
     calcuateRect();
 }
 
-QRectF JLineItem::boundingRect() const
+QRectF CLineItem::boundingRect() const
 {
     return m_rectf;
 }
 
-QPainterPath JLineItem::shape() const
+QPainterPath CLineItem::shape() const
 {
     QPainterPath path;
     path.addRect(m_rectf);
     return path;
 }
 
-void JLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void CLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option)
     Q_UNUSED(widget)
@@ -47,51 +47,51 @@ void JLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     painter->drawLine(m_line);
 }
 
-void JLineItem::updateLines()
+void CLineItem::updateLines()
 {
     update();
 }
 
-void JLineItem::calcuateRect()
+void CLineItem::calcuateRect()
 {
     // 计算画线所占矩形坐标
     m_rectf.setWidth(fabs(m_line.x2() - m_line.x1()));
     m_rectf.setHeight(fabs(m_line.y2() - m_line.y1()));
 }
 
-void JLineItem::setPen(const QPen &pen)
+void CLineItem::setPen(const QPen &pen)
 {
     m_pen = pen;
 }
 
-QPen JLineItem::pen() const
+QPen CLineItem::pen() const
 {
     return m_pen;
 }
 
-void JLineItem::setColor(const QColor &color)
+void CLineItem::setColor(const QColor &color)
 {
     m_pen.setColor(color);
 }
 
-QColor JLineItem::color() const
+QColor CLineItem::color() const
 {
     return m_pen.color();
 }
 
-void JLineItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void CLineItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem::mousePressEvent(event);
     update();
 }
 
-void JLineItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void CLineItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem::mouseMoveEvent(event);
     update();
 }
 
-void JLineItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void CLineItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem::mouseReleaseEvent(event);
     update();
